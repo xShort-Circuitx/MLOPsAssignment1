@@ -34,7 +34,6 @@ pipeline {
             steps {
                 script {
                     bat "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
-                    // Also tag and push as latest
                     bat "docker tag ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ${DOCKER_IMAGE_NAME}:latest"
                     bat "docker push ${DOCKER_IMAGE_NAME}:latest"
                 }
@@ -48,7 +47,8 @@ pipeline {
                 subject: "SUCCESSFUL: Pipeline '${currentBuild.fullDisplayName}'",
                 body: "The pipeline ${currentBuild.fullDisplayName} has been deployed successfully.\n\nDocker image: ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}",
                 to: 'maleeha139@gmail.com',  
-                from: 'jenkins@example.com'
+                from: 'maleeha139@gmail.com'
+'
             )
         }
         
@@ -57,7 +57,8 @@ pipeline {
                 subject: "FAILED: Pipeline '${currentBuild.fullDisplayName}'",
                 body: "The pipeline ${currentBuild.fullDisplayName} has failed. Please check the logs.",
                 to: 'maleeha139@gmail.com', 
-                from: 'jenkins@example.com'
+                from: 'maleeha139@gmail.com'
+'
             )
         }
         
