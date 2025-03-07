@@ -46,8 +46,7 @@ pipeline {
             emailext (
                 subject: "SUCCESSFUL: Pipeline '${currentBuild.fullDisplayName}'",
                 body: "The pipeline ${currentBuild.fullDisplayName} has been deployed successfully.\n\nDocker image: ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}",
-                to: 'maleeha139@gmail.com',  
-                from: 'maleeha139@gmail.com'
+                to: 'maleeha139@gmail.com'
             )
         }
         
@@ -55,8 +54,7 @@ pipeline {
             emailext (
                 subject: "FAILED: Pipeline '${currentBuild.fullDisplayName}'",
                 body: "The pipeline ${currentBuild.fullDisplayName} has failed. Please check the logs.",
-                to: 'maleeha139@gmail.com', 
-                from: 'maleeha139@gmail.com'
+                to: 'maleeha139@gmail.com'
             )
         }
         
